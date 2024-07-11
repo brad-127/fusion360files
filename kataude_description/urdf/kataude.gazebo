@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <robot name="kataude" xmlns:xacro="http://www.ros.org/wiki/xacro" >
-
+#llll
 <xacro:property name="body_color" value="Gazebo/Silver" />
 
 <gazebo>
