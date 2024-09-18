@@ -1,17 +1,42 @@
 <?xml version="1.0" ?>
 <robot name="kataude" xmlns:xacro="http://www.ros.org/wiki/xacro" >
-#llll
+
 <xacro:property name="body_color" value="Gazebo/Silver" />
 
 <gazebo>
-  <plugin name="control" filename="libgazebo_ros_control.so"/>
+  <plugin name="control" filename="libgazebo_ros_control.so">
+    <robotNamespace>/kataude_controller</robotNamespace>
+    <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    <legacyModeNS>true</legacyModeNS>
+  </plugin>
+  <plugin name="contact_plugin" filename="libgazebo_ros_contact.so">
+    <ros>
+      <namespace>/kataude_controller</namespace>
+      <remapping>bumber_states:=/contact_sensor_state</remapping>
+    </ros>
+  </plugin>
 </gazebo>
+
 <gazebo reference="base_link">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <selfCollide>true</selfCollide>
   <gravity>true</gravity>
+  <sensor type="contact" name="contact_sensor_base">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>base_link_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/kataude_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_base_state</remapping>
+      </ros>
+      <frameName>base_link</frameName>
+    </plugin>
+  </sensor>
 </gazebo>
 
 <gazebo reference="UpperArm_1">
@@ -19,6 +44,20 @@
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_upperarm">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>UpperArm_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/kataude_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_upperarm_state</remapping>
+      </ros>
+      <frameName>UpperArm_1</frameName>
+    </plugin>
+  </sensor>
 </gazebo>
 
 <gazebo reference="XM540_270R__3_1">
@@ -26,6 +65,20 @@
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_xm540">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>XM540_270R__3_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/kataude_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_xm540_state</remapping>
+      </ros>
+      <frameName>XM540_270R__3_1</frameName>
+    </plugin>
+  </sensor>
 </gazebo>
 
 <gazebo reference="mikata_arm_1">
@@ -33,6 +86,20 @@
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_mikata_arm">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>mikata_arm_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/kataude_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_mikata_arm_state</remapping>
+      </ros>
+      <frameName>mikata_arm_1</frameName>
+    </plugin>
+  </sensor>
 </gazebo>
 
 <gazebo reference="Shoulder_Servo3_1">
@@ -40,6 +107,20 @@
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_shoulder_servo">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>Shoulder_Servo3_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/kataude_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_shoulder_servo_state</remapping>
+      </ros>
+      <frameName>Shoulder_Servo3_1</frameName>
+    </plugin>
+  </sensor>
 </gazebo>
 
 <gazebo reference="ForeArm_1">
@@ -47,6 +128,20 @@
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_forearm">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>ForeArm_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/kataude_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_forearm_state</remapping>
+      </ros>
+      <frameName>ForeArm_1</frameName>
+    </plugin>
+  </sensor>
 </gazebo>
 
 <gazebo reference="XM540_270R_2_1">
@@ -54,6 +149,20 @@
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_xm540_2">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>XM540_270R_2_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/kataude_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_xm540_2_state</remapping>
+      </ros>
+      <frameName>XM540_270R_2_1</frameName>
+    </plugin>
+  </sensor>
 </gazebo>
 
 <gazebo reference="gripper1_1">
@@ -61,6 +170,20 @@
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_gripper1">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>gripper1_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/kataude_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_gripper1_state</remapping>
+      </ros>
+      <frameName>gripper1_1</frameName>
+    </plugin>
+  </sensor>
 </gazebo>
 
 <gazebo reference="gripper2_1">
@@ -68,6 +191,20 @@
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
   <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_gripper2">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>gripper2_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/kataude_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_gripper2_state</remapping>
+      </ros>
+      <frameName>gripper2_1</frameName>
+    </plugin>
+  </sensor>
 </gazebo>
 
 </robot>

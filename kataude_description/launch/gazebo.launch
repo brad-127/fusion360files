@@ -1,11 +1,26 @@
 <launch>
+
   <param name="robot_description" command="$(find xacro)/xacro $(find kataude_description)/urdf/kataude.xacro"/>
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model kataude"/>
+  
+  <!-- ボールモデルの追加 -->
+  <param name="ball_description" command="$(find xacro)/xacro $(find kataude_description)/urdf/ball.urdf"/>
+  <node name="spawn_ball" pkg="gazebo_ros" type="spawn_model" args="-param ball_description -urdf -model ball -x 1.0 -y 1.0 -z 1.0"/>
+  
+  <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/> -->
+  <!-- <node name="set_joint_angles" pkg="kataude_description" type="set45deg.py" output="screen" cwd="node">
+    <param name="cwd" value="node"/>
+  </node> -->
+  <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/> -->
+  <!-- <node if="$(arg gui)" name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" /> -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="paused" value="true"/>
+    <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
     <arg name="headless" value="false"/>
     <arg name="debug" value="false"/>
+  </include>
+
+  <include file="$(find kataude_description)/launch/controller.launch" >
   </include>
 </launch>

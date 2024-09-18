@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<robot name="ball_robot">
+  <link name="ball_link">
+    <visual>
+      <geometry>
+        <sphere radius="100"/> <!-- 半径 -->
+      </geometry>
+      <material name="red_material">
+        <color rgba="1 0 0 1"/> <!-- 赤色 -->
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <sphere radius="0.1"/> <!-- 半径 -->
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1.0"/>
+      <inertia
+        ixx="0.01"
+        ixy="0"
+        ixz="0"
+        iyy="0.01"
+        iyz="0"
+        izz="0.01"/>
+    </inertial>
+  </link>
+  <gazebo>
+    <plugin name="ball_plugin" filename="libgazebo_ros_ball.so"/>
+  </gazebo>
+</robot>

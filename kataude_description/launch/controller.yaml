@@ -2,38 +2,57 @@ kataude_controller:
   # Publish all joint states -----------------------------------
   joint_state_controller:
     type: joint_state_controller/JointStateController
-    publish_rate: 50
-
+    publish_rate: 10
+  gazebo_ros_control:
+    pid_gains:
+      ShoulderJoint1: {p: 100.0, i: 30.0, d: 50.0, i_clamp: 100000}
+      ShoulderJoint2: {p: 100.0, i: 30.0, d: 50.0, i_clamp: 100000}
+      ElbowJoint: {p: 100.0, i: 30.0, d: 50.0, i_clamp: 100000}
+      xm540_1: {p: 100.0, i: 0.01, d: 1.0, i_clamp: 100000}
+      xm540_2: {p: 100.0, i: 0.01, d: 1.0, i_clamp: 100000}
+      xm540_3: {p: 100.0, i: 0.01, d: 1.0, i_clamp: 100000}
+      EndEffecter1:  {p: 100.0, i: 0.01, d: 1.0}
+      EndEffecter2:  {p: 100.0, i: 0.01, d: 1.0}
   # Position Controllers --------------------------------------
+  joints:
+    - ShoulderJoint2
+    - ShoulderJoint1
+    - ElbowJoint
+    - xm540_1
   ShoulderJoint2_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: ShoulderJoint2
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}
+    # pid_gains: {p: 9.0, i: 0.0, d: 0.0}
   xm540_2_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: xm540_2
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}
   xm540_3_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: xm540_3
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+    # pid_gains: {p: 9.0, i: 0.0, d: 0.0}
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}    
   ShoulderJoint1_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: ShoulderJoint1
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+    # pid_gains: {p: 9.0, i: 0.0, d: 0.0}
+    # pid: {p: 0.0, i: 0, d: 0}    
   ElbowJoint_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: ElbowJoint
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+    # pid_gains: {p: 9.0, i: 0.0, d: 0.0}
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}    
   xm540_1_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: xm540_1
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+    # pid_gains: {p: 9.0, i: 0.0, d: 0.0}
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}        
   EndEffecter1_position_controller:
-    type: effort_controllers/JointPositionController
+    type: position_controllers/JointPositionController
     joint: EndEffecter1
-    pid: {p: 100.0, i: 0.01, d: 10.0}
-  Endeffecter2_position_controller:
-    type: effort_controllers/JointPositionController
-    joint: Endeffecter2
-    pid: {p: 100.0, i: 0.01, d: 10.0}
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}
+  EndEffecter2_position_controller:
+    type: position_controllers/JointPositionController
+    joint: EndEffecter2
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}
