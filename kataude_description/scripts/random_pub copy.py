@@ -21,22 +21,22 @@ def publish_positions():
     while not rospy.is_shutdown():
         # メッセージの作成
         position1 = Float64()
-        position1.data = random.uniform(-math.pi/2, math.pi/2)  # -πからπの範囲でランダムな値
+        position1.data = 0 #1.57#random.uniform(-math.pi, math.pi)  # -πからπの範囲でランダムな値
 
         position2 = Float64()
-        position2.data = random.uniform(-math.pi/2, math.pi/2)  # -πからπの範囲でランダムな値
+        position2.data = 0 #random.uniform(-math.pi, math.pi)  # -πからπの範囲でランダムな値
 
         position3 = Float64()
-        position3.data = random.uniform(-math.pi/2, math.pi/2)  # -πからπの範囲でランダムな値
+        position3.data = 0#1.047
 
         position4 = Float64()
-        position4.data = random.uniform(-math.pi/2, math.pi/2)  # -πからπの範囲でランダムな値
+        position4.data = 0#1.047
 
         position5 = Float64()
-        position5.data = random.uniform(-math.pi/2, math.pi/2)  # -πからπの範囲でランダムな値
+        position5.data = 0#1.047
 
         position6 = Float64()
-        position6.data = random.uniform(-math.pi/2, math.pi/2)  # -πからπの範囲でランダムな値
+        position6.data = 1.57#1.047
         
         print(f"Publishing positions... Position1: {position1.data} radians")
 
@@ -48,9 +48,9 @@ def publish_positions():
         pub5.publish(position5)
         pub6.publish(position6)
 
-        #rate.sleep()
+        rate.sleep()
         ## 5秒ごとにランダムな値に変更
-        rospy.sleep(2)
+        #rospy.sleep(5)
         
 if __name__ == '__main__':
     try:
