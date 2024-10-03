@@ -3,7 +3,7 @@
 
 <!-- <link name="dummy">
    </link> -->
-<link name="world" /> 
+<link name="world" />
 <link name="base_link">
   <inertial>
     <origin xyz="-0.15278443948564172 -1.646071389736825e-05 1.9943676527636152" rpy="0 0 0"/>
