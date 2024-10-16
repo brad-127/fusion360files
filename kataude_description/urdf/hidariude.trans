@@ -1,0 +1,92 @@
+<?xml version="1.0" ?>
+<robot name="kataude" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="ShoulderJoint1_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="LShoulderJoint1">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="ShoulderJoint1_actr">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="ShoulderJoint2_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="LShoulderJoint2">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="ShoulderJoint2_actr">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="ElbowJoint_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="LElbowJoint">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="ElbowJoint_actr">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="xm540_1_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Lxm540_1">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="xm540_1_actr">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="xm540_2_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Lxm540_2">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="xm540_2_actr">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="xm540_3_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="Lxm540_3">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="xm540_3_actr">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="EndEffecter1_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="LEndEffecter1">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="EndEffecter1_actr">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="EndEffecter2_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="LEndEffecter2">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="EndEffecter2_actr">
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>

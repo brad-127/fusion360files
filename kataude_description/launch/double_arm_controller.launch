@@ -1,0 +1,20 @@
+<launch>
+<!-- <param name="robot_description" command="$(find xacro)/xacro $(find kataude_description)/urdf/kataude.xacro"/> -->
+
+<!-- <rosparam file="$(find kataude_description)/launch/controller.yaml" command="load"/> -->
+<!-- <node name="controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" ns="kataude"/> -->
+<node name="migiude_controller_spawner" 
+    pkg="controller_manager" 
+    type="spawner" respawn="false" 
+    output="screen" ns="/migiude_controller" 
+    args="RShoulderJoint2_position_controller Rxm540_2_position_controller Rxm540_3_position_controller RShoulderJoint1_position_controller RElbowJoint_position_controller Rxm540_1_position_controller REndEffecter1_position_controller REndEffecter2_position_controller Rjoint_state_controller "/>
+<!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+  <remap from="/joint_states" to="/kataude_controller/joint_states"/>
+</node> -->
+<node name="hidariude_controller_spawner" 
+    pkg="controller_manager" 
+    type="spawner" respawn="false" 
+    output="screen" ns="/hidariude_controller" 
+    args="LShoulderJoint2_position_controller Lxm540_2_position_controller Lxm540_3_position_controller LShoulderJoint1_position_controller LElbowJoint_position_controller Lxm540_1_position_controller LEndEffecter1_position_controller LEndEffecter2_position_controller Ljoint_state_controller "/>
+
+</launch>

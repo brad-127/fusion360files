@@ -1,6 +1,6 @@
 <launch>
 <param name="robot_description" command="$(find xacro)/xacro $(find kataude_description)/urdf/kataude.xacro"/>
-  <rosparam file="$(find kataude_description)/launch/controller.yaml" command="load"/>
+<rosparam file="$(find kataude_description)/launch/controller.yaml" command="load"/>
 
 <!-- <rosparam file="$(find kataude_description)/launch/controller.yaml" command="load"/> -->
 <!-- <node name="controller_manager" pkg="controller_manager" type="controller_manager" respawn="false" output="screen" ns="kataude"/> -->

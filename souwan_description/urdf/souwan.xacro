@@ -1,0 +1,726 @@
+<?xml version="1.0" ?>
+<robot name="souwan" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find souwan_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find souwan_description)/urdf/souwan.trans" />
+<xacro:include filename="$(find souwan_description)/urdf/souwan.gazebo" />
+<link name="world" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.0015963631680016555 0.02441186571266117 0.5401061910422761" rpy="0 0 0"/>
+    <!-- <mass value="3.145965262261491"/> -->
+    <mass value="1000000"/>
+    <inertia ixx="11.054573" iyy="13.163935" izz="5.396277" ixy="1.6e-05" iyz="0.242387" ixz="0.000757"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="psolrgb175175175"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="UpperArm_1">
+  <inertial>
+    <origin xyz="-2.3852068189833542e-05 -0.06873170258006335 -0.3984139354134444" rpy="0 0 0"/>
+    <!-- <mass value="142.51149550389982"/> -->
+    <mass value="1.4251149550389982"/>
+    <inertia ixx="5.64702" iyy="5.488361" izz="0.635098" ixy="-0.0" iyz="0.000188" ixz="-2.8e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.430929 -0.062571 -2.015769" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/UpperArm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="red"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.430929 -0.062571 -2.015769" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/UpperArm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="XM540_270R__3_1">
+  <inertial>
+    <origin xyz="-0.024533479450809748 0.00021362925096570472 -0.06312013365978963" rpy="0 0 0"/>
+    <!-- <mass value="0.09824516357620273"/> -->
+    <mass value="0.164"/>
+    <inertia ixx="6.2e-05" iyy="5.8e-05" izz="2.8e-05" ixy="-0.0" iyz="0.0" ixz="2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.450238 0.005508 -0.457158" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/XM540_270R__3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque120120120"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.450238 0.005508 -0.457158" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/XM540_270R__3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="mikata_arm_1">
+  <inertial>
+    <origin xyz="9.015816639063035e-05 0.024605860768897814 -0.04241758137585272" rpy="0 0 0"/>
+    <!-- <mass value="0.5291067052461904"/> -->
+    <mass value="0.164"/>
+    <inertia ixx="0.000219" iyy="0.00018" izz="0.000224" ixy="-1e-06" iyz="6e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.426054 0.032123 -0.373624" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/mikata_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.426054 0.032123 -0.373624" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/mikata_arm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ForeArm_1">
+  <inertial>
+    <origin xyz="-0.0001102106687022597 -0.06821284770010502 -0.3727167050365737" rpy="0 0 0"/>
+    <!-- <mass value="131.66138695773583"/> -->
+    <mass value="1.3166138695773583"/>
+    <inertia ixx="4.458919" iyy="4.313539" izz="0.590679" ixy="0.0" iyz="0.00075" ixz="0.000184"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.430896 -0.062663 -1.24979" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/ForeArm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.430896 -0.062663 -1.24979" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/ForeArm_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="XM540_270R_2_1">
+  <inertial>
+    <origin xyz="0.0002450888830624054 -2.033209294641323e-05 -0.03209110300872159" rpy="0 0 0"/>
+    <!-- <mass value="0.09211846580456283"/> -->
+    <mass value="0.170"/>
+    <inertia ixx="3.9e-05" iyy="4.6e-05" izz="2.4e-05" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.425755 0.005535 -0.506566" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/XM540_270R_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque120120120"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.425755 0.005535 -0.506566" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/XM540_270R_2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gripper1_1">
+  <inertial>
+    <origin xyz="0.017093014375337667 0.00878655034841948 -0.03526188037418587" rpy="0 0 0"/>
+    <mass value="0.3618135799855471"/>
+    <inertia ixx="0.0003" iyy="0.000362" izz="0.000133" ixy="0.0" iyz="-2.3e-05" ixz="-1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.40908 -0.011686 -0.327382" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/gripper1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque191191191"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.40908 -0.011686 -0.327382" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/gripper1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gripper2_1">
+  <inertial>
+    <origin xyz="0.01699950994763605 -0.009210445550253799 -0.027913891984979455" rpy="0 0 0"/>
+    <mass value="0.27970437781382335"/>
+    <inertia ixx="0.000199" iyy="0.000246" izz="0.000104" ixy="-0.0" iyz="8e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.40908 0.020314 -0.327382" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/gripper2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque191191191"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.40908 0.020314 -0.327382" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/gripper2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tactile2_1">
+  <inertial>
+    <origin xyz="-6.548314661197763e-05 -0.04994755439783001 0.02023515151794575" rpy="0 0 0"/>
+    <mass value="0.003045796728473125"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.355881 -0.043863 -1.342832" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/tactile2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque255255255"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.355881 -0.043863 -1.342832" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/tactile2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tactile1_1">
+  <inertial>
+    <origin xyz="-6.548314645166142e-05 5.2445602277283523e-05 0.000235151517946397" rpy="0 0 0"/>
+    <mass value="0.003045796728473125"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.355881 0.006137 -1.623832" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/tactile1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque255255255"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.355881 0.006137 -1.623832" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/tactile1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tactile4_1">
+  <inertial>
+    <origin xyz="-6.557165629239581e-05 5.258283219067728e-05 0.00023512657383151225" rpy="0 0 0"/>
+    <mass value="0.003045796728473125"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.355755 0.005534 -0.877806" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/tactile4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque255255255"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.355755 0.005534 -0.877806" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/tactile4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tactile3_1">
+  <inertial>
+    <origin xyz="-6.557165625759032e-05 -0.04994741716762747 -0.019764873426167284" rpy="0 0 0"/>
+    <mass value="0.003045796728473125"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.355755 -0.044466 -1.138806" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/tactile3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="green"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.355755 -0.044466 -1.138806" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/tactile3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="UpperArmR_1">
+  <inertial>
+    <origin xyz="2.353810967625769e-05 -0.06923170257975575 -0.39841453112646263" rpy="0 0 0"/>
+    <!-- <mass value="142.5114955038986"/> -->
+    <mass value="1.4251149550389982"/>
+    <inertia ixx="5.64702" iyy="5.488361" izz="0.635098" ixy="0.0" iyz="0.000188" ixz="2.8e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.43407 -0.062971 -2.016125" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/UpperArmR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="red"/>
+  </visual>
+  <collision>
+    <origin xyz="0.43407 -0.062971 -2.016125" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/UpperArmR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ForeArmR_1">
+  <inertial>
+    <origin xyz="0.00010989670955524611 -0.06821284769979674 -0.3727163007495927" rpy="0 0 0"/>
+    <!-- <mass value="131.66138695773478"/> -->
+    <mass value="1.3166138695773583"/>
+    <inertia ixx="4.458919" iyy="4.313539" izz="0.590679" ixy="-0.0" iyz="0.00075" ixz="-0.000184"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.434037 -0.062563 -1.250145" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/ForeArmR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="0.434037 -0.062563 -1.250145" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/ForeArmR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="XM540_270R_2R_1">
+  <inertial>
+    <origin xyz="-0.00024540284254664924 -2.0332092638699305e-05 -0.031691698721744266" rpy="0 0 0"/>
+    <!-- <mass value="0.09211846580456283"/> -->
+    <mass value="0.170"/>
+    <inertia ixx="3.9e-05" iyy="4.6e-05" izz="2.4e-05" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.428896 0.005635 -0.506922" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/XM540_270R_2R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque120120120"/>
+  </visual>
+  <collision>
+    <origin xyz="0.428896 0.005635 -0.506922" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/XM540_270R_2R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="XM540_270R__3R_1">
+  <inertial>
+    <origin xyz="0.02453316549125456 0.00021362925127329374 -0.0631197293728123" rpy="0 0 0"/>
+    <!-- <mass value="0.09824516357620268"/> -->
+    <mass value="0.164"/>
+    <inertia ixx="6.2e-05" iyy="5.8e-05" izz="2.8e-05" ixy="0.0" iyz="0.0" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.453379 0.005608 -0.457913" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/XM540_270R__3R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque120120120"/>
+  </visual>
+  <collision>
+    <origin xyz="0.453379 0.005608 -0.457913" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/XM540_270R__3R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="mikata_armR_1">
+  <inertial>
+    <origin xyz="-8.9990183926969e-05 -0.026394139224044752 -0.042417772799034914" rpy="0 0 0"/>
+    <!-- <mass value="0.5291067047964437"/> -->
+    <mass value="0.164"/>
+    <inertia ixx="0.000219" iyy="0.00018" izz="0.000224" ixy="1e-06" iyz="6e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.429142 -0.018877 -0.374395" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/mikata_armR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="_"/>
+  </visual>
+  <collision>
+    <origin xyz="0.429142 -0.018877 -0.374395" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/mikata_armR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tactile1R_1">
+  <inertial>
+    <origin xyz="6.616918794222215e-05 5.244560258525072e-05 0.0002345558048608698" rpy="0 0 0"/>
+    <mass value="0.003045796728473125"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.359023 0.006237 -1.624188" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/tactile1R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque255255255"/>
+  </visual>
+  <collision>
+    <origin xyz="0.359023 0.006237 -1.624188" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/tactile1R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tactile2R_1">
+  <inertial>
+    <origin xyz="6.616918775714797e-05 0.050052445602478034 0.02023455580485911" rpy="0 0 0"/>
+    <mass value="0.003045796728473125"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.359023 0.056237 -1.343188" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/tactile2R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque255255255"/>
+  </visual>
+  <collision>
+    <origin xyz="0.359023 0.056237 -1.343188" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/tactile2R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tactile3R_1">
+  <inertial>
+    <origin xyz="6.625769719353913e-05 0.05005258283268075 -0.019765469139247704" rpy="0 0 0"/>
+    <mass value="0.003045796728473125"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.358897 0.055634 -1.139162" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/tactile3R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque255255255"/>
+  </visual>
+  <collision>
+    <origin xyz="0.358897 0.055634 -1.139162" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/tactile3R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="tactile4R_1">
+  <inertial>
+    <origin xyz="6.625769714463381e-05 5.258283249883096e-05 0.00023453086075175822" rpy="0 0 0"/>
+    <mass value="0.003045796728473125"/>
+    <inertia ixx="1e-06" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.358897 0.005634 -0.878162" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/tactile4R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque255255255"/>
+  </visual>
+  <collision>
+    <origin xyz="0.358897 0.005634 -0.878162" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/tactile4R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gripper2R_1">
+  <inertial>
+    <origin xyz="0.021000658148524587 -0.009210444329183713 -0.027914084203927936" rpy="0 0 0"/>
+    <mass value="0.2797043881797005"/>
+    <inertia ixx="0.000199" iyy="0.000246" izz="0.000104" ixy="0.0" iyz="8e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.450068 0.020314 -0.328153" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/gripper2R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque191191191"/>
+  </visual>
+  <collision>
+    <origin xyz="0.450068 0.020314 -0.328153" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/gripper2R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="gripper1R_1">
+  <inertial>
+    <origin xyz="0.016907153617770287 0.008786550348572326 -0.03526207180066104" rpy="0 0 0"/>
+    <mass value="0.3618135799830145"/>
+    <inertia ixx="0.0003" iyy="0.000362" izz="0.000133" ixy="-0.0" iyz="-2.3e-05" ixz="1e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.446168 -0.011686 -0.328153" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/gripper1R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque191191191"/>
+  </visual>
+  <collision>
+    <origin xyz="0.446168 -0.011686 -0.328153" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/gripper1R_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Shoulder_ServoR_1">
+  <inertial>
+    <origin xyz="-0.0012676449456488492 -0.00020736420974297367 0.029979693880177072" rpy="0 0 0"/>
+    <!-- <mass value="4.6598062993642975"/> -->
+    <mass value="1.659806299364297"/> 
+    <inertia ixx="0.006381" iyy="0.074421" izz="0.076997" ixy="-7.7e-05" iyz="-1.2e-05" ixz="-0.006229"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.35307 0.005999 -1.998095" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/Shoulder_ServoR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque120120120"/>
+  </visual>
+  <collision>
+    <origin xyz="0.35307 0.005999 -1.998095" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/Shoulder_ServoR_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Shoulder_Servo_1">
+  <inertial>
+    <origin xyz="0.0012673309874961514 -0.00020736421005134505 0.02998028959326615" rpy="0 0 0"/>
+    <!-- <mass value="4.659806299364297"/> -->
+    <mass value="1.659806299364297"/> 
+    <inertia ixx="0.006381" iyy="0.074421" izz="0.076997" ixy="7.7e-05" iyz="-1.2e-05" ixz="0.006229"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.349929 0.006399 -1.997739" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/Shoulder_Servo_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="opaque120120120"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.349929 0.006399 -1.997739" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://souwan_description/meshes/Shoulder_Servo_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="world_joint" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+<joint name="ShoulderJoint2" type="revolute">
+  <origin xyz="0.081 0.06897 0.01803" rpy="0 0 0"/>
+  <parent link="Shoulder_Servo_1"/>
+  <child link="UpperArm_1"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+  <limit upper="3.141593" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="xm540_2" type="revolute">
+  <origin xyz="0.024483 2.7e-05 -0.049408" rpy="0 0 0"/>
+  <parent link="XM540_270R_2_1"/>
+  <child link="XM540_270R__3_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+  <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+</joint>
+
+<joint name="xm540_3" type="revolute">
+  <origin xyz="-0.024184 -0.026615 -0.083534" rpy="0 0 0"/>
+  <parent link="XM540_270R__3_1"/>
+  <child link="mikata_arm_1"/>
+  <axis xyz="0.0 -1.0 -0.0"/>
+  <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+</joint>
+
+<joint name="ElbowJoint" type="revolute">
+  <origin xyz="-3.3e-05 9.2e-05 -0.765979" rpy="0 0 0"/>
+  <parent link="UpperArm_1"/>
+  <child link="ForeArm_1"/>
+  <axis xyz="0.0 -1.0 0.0"/>
+  <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+</joint>
+
+<joint name="xm540_1" type="continuous">
+  <origin xyz="-0.005141 -0.068198 -0.743224" rpy="0 0 0"/>
+  <parent link="ForeArm_1"/>
+  <child link="XM540_270R_2_1"/>
+  <axis xyz="-0.0 0.0 -1.0"/>
+</joint>
+
+<joint name="Endeffector2" type="revolute">
+  <origin xyz="-0.016974 0.043809 -0.046242" rpy="0 0 0"/>
+  <parent link="mikata_arm_1"/>
+  <child link="gripper1_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+  <limit upper="0.0" lower="-1.047198" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Endeffector1" type="revolute">
+  <origin xyz="-0.016974 0.011809 -0.046242" rpy="0 0 0"/>
+  <parent link="mikata_arm_1"/>
+  <child link="gripper2_1"/>
+  <axis xyz="-1.0 -0.0 0.0"/>
+  <limit upper="1.047198" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="tactile2" type="fixed">
+  <origin xyz="-0.075048 -0.018708 -0.672937" rpy="0 0 0"/>
+  <parent link="UpperArm_1"/>
+  <child link="tactile2_1"/>
+</joint>
+
+<joint name="tactile1" type="fixed">
+  <origin xyz="-0.075048 -0.068708 -0.391937" rpy="0 0 0"/>
+  <parent link="UpperArm_1"/>
+  <child link="tactile1_1"/>
+</joint>
+
+<joint name="tactile4" type="fixed">
+  <origin xyz="-0.075141 -0.068197 -0.371984" rpy="0 0 0"/>
+  <parent link="ForeArm_1"/>
+  <child link="tactile4_1"/>
+</joint>
+
+<joint name="tactile3" type="fixed">
+  <origin xyz="-0.075141 -0.018197 -0.110984" rpy="0 0 0"/>
+  <parent link="ForeArm_1"/>
+  <child link="tactile3_1"/>
+</joint>
+
+<joint name="ShoulderJoint2R" type="revolute">
+  <origin xyz="-0.081 0.06897 0.01803" rpy="0 0 0"/>
+  <parent link="Shoulder_ServoR_1"/>
+  <child link="UpperArmR_1"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+  <limit upper="3.141593" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="ElbowJointR" type="revolute">
+  <origin xyz="3.3e-05 -0.000408 -0.76598" rpy="0 0 0"/>
+  <parent link="UpperArmR_1"/>
+  <child link="ForeArmR_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+  <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+</joint>
+
+<joint name="xm540_1R" type="continuous">
+  <origin xyz="0.005141 -0.068198 -0.743223" rpy="0 0 0"/>
+  <parent link="ForeArmR_1"/>
+  <child link="XM540_270R_2R_1"/>
+  <axis xyz="0.0 -0.0 1.0"/>
+</joint>
+
+<joint name="xm540_2R" type="revolute">
+  <origin xyz="-0.024483 2.7e-05 -0.049009" rpy="0 0 0"/>
+  <parent link="XM540_270R_2R_1"/>
+  <child link="XM540_270R__3R_1"/>
+  <axis xyz="1.0 -0.0 -0.0"/>
+  <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+</joint>
+
+<joint name="xm540_3R" type="revolute">
+  <origin xyz="0.024237 0.024485 -0.083518" rpy="0 0 0"/>
+  <parent link="XM540_270R__3R_1"/>
+  <child link="mikata_armR_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+</joint>
+
+<joint name="tactile1R" type="fixed">
+  <origin xyz="0.075047 -0.069208 -0.391937" rpy="0 0 0"/>
+  <parent link="UpperArmR_1"/>
+  <child link="tactile1R_1"/>
+</joint>
+
+<joint name="tactile2R" type="fixed">
+  <origin xyz="0.075047 -0.119208 -0.672937" rpy="0 0 0"/>
+  <parent link="UpperArmR_1"/>
+  <child link="tactile2R_1"/>
+</joint>
+
+<joint name="tactile3R" type="fixed">
+  <origin xyz="0.07514 -0.118197 -0.110983" rpy="0 0 0"/>
+  <parent link="ForeArmR_1"/>
+  <child link="tactile3R_1"/>
+</joint>
+
+<joint name="tactile4R" type="fixed">
+  <origin xyz="0.07514 -0.068197 -0.371983" rpy="0 0 0"/>
+  <parent link="ForeArmR_1"/>
+  <child link="tactile4R_1"/>
+</joint>
+
+<joint name="Endeffetor1R" type="revolute">
+  <origin xyz="-0.020926 -0.039191 -0.046242" rpy="0 0 0"/>
+  <parent link="mikata_armR_1"/>
+  <child link="gripper2R_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+  <limit upper="1.047198" lower="0.0" effort="100" velocity="100"/>
+</joint>
+
+<joint name="Endeffecter2R" type="revolute">
+  <origin xyz="-0.017026 -0.007191 -0.046242" rpy="0 0 0"/>
+  <parent link="mikata_armR_1"/>
+  <child link="gripper1R_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+  <limit upper="0.0" lower="-1.047198" effort="100" velocity="100"/>
+</joint>
+
+<joint name="ShoulderJointR" type="revolute">
+  <origin xyz="-0.35307 -0.005999 1.998095" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Shoulder_ServoR_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+  <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+</joint>
+
+<joint name="ShoulderJoint" type="revolute">
+  <origin xyz="0.349929 -0.006399 1.997739" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="Shoulder_Servo_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+  <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+</joint>
+
+</robot>

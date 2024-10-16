@@ -11,7 +11,7 @@
     </visual>
     <collision>
       <geometry>
-        <sphere radius="0.1"/> <!-- 半径 -->
+        <sphere radius="100"/> <!-- 半径 -->
       </geometry>
     </collision>
     <inertial>

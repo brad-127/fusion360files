@@ -1,0 +1,547 @@
+<?xml version="1.0" ?>
+<robot name="souwan" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="body_color" value="Gazebo/Silver" />
+
+<gazebo>
+  <plugin name="control" filename="libgazebo_ros_control.so">
+    <robotNamespace>/souwan_controller</robotNamespace>
+    <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    <legacyModeNS>true</legacyModeNS>
+  </plugin>
+  <plugin name="contact_plugin" filename="libgazebo_ros_contact.so">
+    <ros>
+      <namespace>/souwan_controller</namespace>
+      <remapping>bumber_states:=/contact_sensor_state</remapping>
+
+    </ros>
+  </plugin>
+</gazebo>
+
+<gazebo reference="base_link">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <gravity>true</gravity>
+  <sensor type="contact" name="contact_sensor_base">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision name="base_link_collision">base_link_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <!-- <remapping>bumber_states:=/contact_sensor_base_state</remapping> -->
+      </ros>
+      <frameName>world</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="Shoulder_Servo_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_shoulder_servo">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>Shoulder_Servo_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_shoulder_servo_state</remapping>
+      </ros>
+      <frameName>Shoulder_Servo_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="UpperArm_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_upperarm">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>UpperArm_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_upperarm_state</remapping>
+      </ros>
+      <frameName>UpperArm_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="ForeArm_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_forearm">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>ForeArm_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_forearm_state</remapping>
+      </ros>
+      <frameName>ForeArm_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="XM540_270R_2_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_xm540_2">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>XM540_270R_2_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_xm540_2_state</remapping>
+      </ros>
+      <frameName>XM540_270R_2_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="XM540_270R__3_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_xm540">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>XM540_270R__3_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_xm540_state</remapping>
+      </ros>
+      <frameName>XM540_270R__3_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="mikata_arm_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_mikata_arm">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>mikata_arm_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_mikata_arm_state</remapping>
+      </ros>
+      <frameName>mikata_arm_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="gripper1_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_gripper1">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>gripper1_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_gripper1_state</remapping>
+      </ros>
+      <frameName>gripper1_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="gripper2_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_gripper2">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>gripper2_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_gripper2_state</remapping>
+      </ros>
+      <frameName>gripper2_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="tactile1_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_tactile1">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>tactile1_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_tactile1_state</remapping>
+      </ros>
+      <frameName>tactile1_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="tactile2_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_tactile2">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>tactile2_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_tactile2_state</remapping>
+      </ros>
+      <frameName>tactile2_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="tactile3_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_tactile3">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>tactile3_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_tactile3_state</remapping>
+      </ros>
+      <frameName>tactile3_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="tactile4_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_tactile4">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>tactile4_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_tactile4_state</remapping>
+      </ros>
+      <frameName>tactile4_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="Shoulder_ServoR_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_shoulder_servoR">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>Shoulder_ServoR_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_shoulder_servoR_state</remapping>
+      </ros>
+      <frameName>Shoulder_ServoR_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="UpperArmR_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_upperarmR">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>UpperArmR_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_upperarmR_state</remapping>
+      </ros>
+      <frameName>UpperArmR_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="ForeArmR_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_forearmR">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>ForeArmR_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_forearmR_state</remapping>
+      </ros>
+      <frameName>ForeArmR_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="XM540_270R_2R_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_xm540_2R">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>XM540_270R_2R_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_xm540_2R_state</remapping>
+      </ros>
+      <frameName>XM540_270R_2R_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="XM540_270R__3R_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_xm540R">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>XM540_270R__3R_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_xm540R_state</remapping>
+      </ros>
+      <frameName>XM540_270R__3R_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="mikata_armR_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_mikata_armR">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>mikata_armR_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_mikata_armR_state</remapping>
+      </ros>
+      <frameName>mikata_armR_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="gripper1R_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_gripper1R">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>gripper1R_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_gripper1R_state</remapping>
+      </ros>
+      <frameName>gripper1R_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="gripper2R_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_gripper2R">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>gripper2R_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_gripper2R_state</remapping>
+      </ros>
+      <frameName>gripper2R_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="tactile1R_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_tactile1R">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>tactile1R_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_tactile1R_state</remapping>
+      </ros>
+      <frameName>tactile1R_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="tactile2R_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_tactile2R">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>tactile2R_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_tactile2R_state</remapping>
+      </ros>
+      <frameName>tactile2R_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="tactile3R_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_tactile3R">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>tactile3R_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_tactile3R_state</remapping>
+      </ros>
+      <frameName>tactile3R_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+<gazebo reference="tactile4R_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_tactile4R">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>tactile4R_1_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_tactile4R_state</remapping>
+      </ros>
+      <frameName>tactile4R_1</frameName>
+    </plugin>
+  </sensor>
+</gazebo>
+
+</robot>

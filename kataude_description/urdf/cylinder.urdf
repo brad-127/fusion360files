@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<robot name="simple_cylinder">
+
+  <!-- リンクの定義 -->
+  <link name="cylinder_link">
+    <visual>
+      <geometry>
+        <cylinder radius="0.5" length="2.0"/> <!-- 半径と高さの指定 -->
+      </geometry>
+      <material>
+        <color rgba="0.5 0.5 0.5 1.0"/> <!-- 灰色の色指定 -->
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+        <cylinder radius="0.5" length="2.0"/> <!-- 衝突判定用の形状 -->
+      </geometry>
+    </collision>
+
+    <inertial>
+      <mass value="5.0"/> <!-- 質量 -->
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.1" ixy="0.0" ixz="0.0" iyy="0.1" iyz="0.0" izz="0.1"/>
+    </inertial>
+  </link>
+
+  <!-- ジョイントの定義 -->
+  <joint name="fixed_joint" type="fixed">
+    <parent link="world"/>
+    <child link="cylinder_link"/>
+    <origin xyz="0 0 1" rpy="0 0 0"/> <!-- 地面からの高さ調整 -->
+  </joint>
+
+</robot>

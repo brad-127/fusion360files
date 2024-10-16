@@ -1,0 +1,94 @@
+souwan_controller:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 10
+  gazebo_ros_control:
+    pid_gains:
+      ShoulderJoint: {p: 100.0, i: 30.0, d: 50.0, i_clamp: 100000}
+      ShoulderJoint2: {p: 100.0, i: 30.0, d: 50.0, i_clamp: 100000}
+      ElbowJoint: {p: 100.0, i: 30.0, d: 50.0, i_clamp: 100000}
+      xm540_1: {p: 100.0, i: 0.01, d: 1.0, i_clamp: 100000}
+      xm540_2: {p: 100.0, i: 0.01, d: 1.0, i_clamp: 100000}
+      xm540_3: {p: 100.0, i: 0.01, d: 1.0, i_clamp: 100000}
+      EndEffecter1:  {p: 100.0, i: 0.01, d: 1.0}
+      EndEffecter2:  {p: 100.0, i: 0.01, d: 1.0}
+
+      ShoulderJointR: {p: 100.0, i: 30.0, d: 50.0, i_clamp: 100000}
+      ShoulderJoint2R: {p: 100.0, i: 30.0, d: 50.0, i_clamp: 100000}
+      ElbowJointR: {p: 100.0, i: 30.0, d: 50.0, i_clamp: 100000}
+      xm540_1R: {p: 100.0, i: 0.01, d: 1.0, i_clamp: 100000}
+      xm540_2R: {p: 100.0, i: 0.01, d: 1.0, i_clamp: 100000}
+      xm540_3R: {p: 100.0, i: 0.01, d: 1.0, i_clamp: 100000}
+      EndEffecter1R:  {p: 100.0, i: 0.01, d: 1.0}
+      EndEffecter2R:  {p: 100.0, i: 0.01, d: 1.0}
+  # Position Controllers --------------------------------------
+    joints:
+    - ShoulderJoint2
+    - ShoulderJoint1
+    - ElbowJoint
+    - xm540_1
+  ShoulderJoint2_position_controller:
+    type: position_controllers/JointPositionController
+    joint: ShoulderJoint2
+    # pid: {p: 100.0, i: 0.01, d: 10.0}
+  xm540_2_position_controller:
+    type: position_controllers/JointPositionController
+    joint: xm540_2
+    # pid: {p: 100.0, i: 0.01, d: 10.0}
+  xm540_3_position_controller:
+    type: position_controllers/JointPositionController
+    joint: xm540_3
+    # pid: {p: 100.0, i: 0.01, d: 10.0}
+  ElbowJoint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: ElbowJoint
+    # pid: {p: 100.0, i: 0.01, d: 10.0}
+  xm540_1_position_controller:
+    type: position_controllers/JointPositionController
+    joint: xm540_1
+    # pid: {p: 100.0, i: 0.01, d: 10.0}
+  Endeffector2_position_controller:
+    type: position_controllers/JointPositionController
+    joint: Endeffector2
+    # pid: {p: 100.0, i: 0.01, d: 10.0}
+  Endeffector1_position_controller:
+    type: position_controllers/JointPositionController
+    joint: Endeffector1
+    # pid: {p: 100.0, i: 0.01, d: 10.0}
+  ShoulderJoint2R_position_controller:
+    type: position_controllers/JointPositionController
+    joint: ShoulderJoint2R
+    # pid: {p: 100.0, i: 0.01, d: 10.0}
+  ElbowJointR_position_controller:
+    type: position_controllers/JointPositionController
+    joint: ElbowJointR
+    # pid: {p: 100.0, i: 0.01, d: 10.0}
+  xm540_1R_position_controller:
+    type: position_controllers/JointPositionController
+    joint: xm540_1R
+    # pid: {p: 100.0, i: 0.01, d: 10.0}
+  xm540_2R_position_controller:
+    type: position_controllers/JointPositionController
+    joint: xm540_2R
+    # pid: {p: 100.0, i: 0.01, d: 10.0}
+  xm540_3R_position_controller:
+    type: position_controllers/JointPositionController
+    joint: xm540_3R
+    # pid: {p: 100.0, i: 0.01, d: 10.0}
+  Endeffetor1R_position_controller:
+    type: position_controllers/JointPositionController
+    joint: Endeffetor1R
+    # pid: {p: 100.0, i: 0.01, d: 10.0}
+  Endeffecter2R_position_controller:
+    type: position_controllers/JointPositionController
+    joint: Endeffecter2R
+    # pid: {p: 100.0, i: 0.01, d: 10.0}
+  ShoulderJointR_position_controller:
+    type: position_controllers/JointPositionController
+    joint: ShoulderJointR
+    # pid: {p: 100.0, i: 0.01, d: 10.0}
+  ShoulderJoint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: ShoulderJoint
+    # pid: {p: 100.0, i: 0.01, d: 10.0}

@@ -1,0 +1,117 @@
+migiude_controller:
+  # Publish all joint states -----------------------------------
+  Rjoint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 10
+  gazebo_ros_control:
+    pid_gains:
+      RShoulderJoint1: {p: 100.0, i: 30.0, d: 50.0, i_clamp: 100000}
+      RShoulderJoint2: {p: 100.0, i: 30.0, d: 50.0, i_clamp: 100000}
+      RElbowJoint: {p: 100.0, i: 30.0, d: 50.0, i_clamp: 100000}
+      Rxm540_1: {p: 100.0, i: 0.01, d: 1.0, i_clamp: 100000}
+      Rxm540_2: {p: 100.0, i: 0.01, d: 1.0, i_clamp: 100000}
+      Rxm540_3: {p: 100.0, i: 0.01, d: 1.0, i_clamp: 100000}
+      REndEffecter1:  {p: 100.0, i: 0.01, d: 1.0}
+      REndEffecter2:  {p: 100.0, i: 0.01, d: 1.0}
+  # Position Controllers --------------------------------------
+  joints:
+    - RShoulderJoint2
+    - RShoulderJoint1
+    - RElbowJoint
+    - Rxm540_1
+  RShoulderJoint2_position_controller:
+    type: position_controllers/JointPositionController
+    joint: RShoulderJoint2
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}
+    # pid_gains: {p: 9.0, i: 0.0, d: 0.0}
+  Rxm540_2_position_controller:
+    type: position_controllers/JointPositionController
+    joint: Rxm540_2
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}
+  Rxm540_3_position_controller:
+    type: position_controllers/JointPositionController
+    joint: Rxm540_3
+    # pid_gains: {p: 9.0, i: 0.0, d: 0.0}
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}    
+  RShoulderJoint1_position_controller:
+    type: position_controllers/JointPositionController
+    joint: RShoulderJoint1
+    # pid_gains: {p: 9.0, i: 0.0, d: 0.0}
+    # pid: {p: 0.0, i: 0, d: 0}    
+  RElbowJoint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: RElbowJoint
+    # pid_gains: {p: 9.0, i: 0.0, d: 0.0}
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}    
+  Rxm540_1_position_controller:
+    type: position_controllers/JointPositionController
+    joint: Rxm540_1
+    # pid_gains: {p: 9.0, i: 0.0, d: 0.0}
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}        
+  REndEffecter1_position_controller:
+    type: position_controllers/JointPositionController
+    joint: REndEffecter1
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}
+  REndEffecter2_position_controller:
+    type: position_controllers/JointPositionController
+    joint: REndEffecter2
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}
+
+hidariude_controller:
+  # Publish all joint states -----------------------------------
+  Ljoint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 10
+  gazebo_ros_control:
+    pid_gains:
+      LShoulderJoint1: {p: 100.0, i: 30.0, d: 50.0, i_clamp: 100000}
+      LShoulderJoint2: {p: 100.0, i: 30.0, d: 50.0, i_clamp: 100000}
+      LElbowJoint: {p: 100.0, i: 30.0, d: 50.0, i_clamp: 100000}
+      Lxm540_1: {p: 100.0, i: 0.01, d: 1.0, i_clamp: 100000}
+      Lxm540_2: {p: 100.0, i: 0.01, d: 1.0, i_clamp: 100000}
+      Lxm540_3: {p: 100.0, i: 0.01, d: 1.0, i_clamp: 100000}
+      LEndEffecter1:  {p: 100.0, i: 0.01, d: 1.0}
+      LEndEffecter2:  {p: 100.0, i: 0.01, d: 1.0}
+  # Position Controllers --------------------------------------
+  joints:
+    - LShoulderJoint2
+    - LShoulderJoint1
+    - LElbowJoint
+    - Lxm540_1
+  LShoulderJoint2_position_controller:
+    type: position_controllers/JointPositionController
+    joint: LShoulderJoint2
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}
+    # pid_gains: {p: 9.0, i: 0.0, d: 0.0}
+  Lxm540_2_position_controller:
+    type: position_controllers/JointPositionController
+    joint: Lxm540_2
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}
+  Lxm540_3_position_controller:
+    type: position_controllers/JointPositionController
+    joint: Lxm540_3
+    # pid_gains: {p: 9.0, i: 0.0, d: 0.0}
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}    
+  LShoulderJoint1_position_controller:
+    type: position_controllers/JointPositionController
+    joint: LShoulderJoint1
+    # pid_gains: {p: 9.0, i: 0.0, d: 0.0}
+    # pid: {p: 0.0, i: 0, d: 0}    
+  LElbowJoint_position_controller:
+    type: position_controllers/JointPositionController
+    joint: LElbowJoint
+    # pid_gains: {p: 9.0, i: 0.0, d: 0.0}
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}    
+  Lxm540_1_position_controller:
+    type: position_controllers/JointPositionController
+    joint: Lxm540_1
+    # pid_gains: {p: 9.0, i: 0.0, d: 0.0}
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}        
+  LEndEffecter1_position_controller:
+    type: position_controllers/JointPositionController
+    joint: LEndEffecter1
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}
+  LEndEffecter2_position_controller:
+    type: position_controllers/JointPositionController
+    joint: LEndEffecter2
+    # pid_gains: {p: 100.0, i: 0.01, d: 1.0}

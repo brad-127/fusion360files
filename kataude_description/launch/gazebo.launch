@@ -1,8 +1,14 @@
 <launch>
+  <!-- 制御のゲインの読み込み。Gazebo自体が必要になるのでここにおく。 -->
+  <rosparam file="$(find kataude_description)/launch/double_arm_controller.yaml" command="load"/>
 
-  <param name="robot_description" command="$(find xacro)/xacro $(find kataude_description)/urdf/kataude.xacro"/>
-  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model kataude"/>
+  <param name="migiude_robot_description" command="$(find xacro)/xacro $(find kataude_description)/urdf/migiude.xacro"/>
+  <node name="spawn_urdf_migi" pkg="gazebo_ros" type="spawn_model" args="-param migiude_robot_description -urdf -model kataude -x -1.0 -robot_namespace migiude"/>
   
+  <param name="hidariude_robot_description" command="$(find xacro)/xacro $(find kataude_description)/urdf/hidariude.xacro"/>
+  <node name="spawn_urdf_hidari" pkg="gazebo_ros" type="spawn_model" args="-param hidariude_robot_description -urdf -model hidariude -x 1.0 -Y 3.1415926 -robot_namespace hidariude"/>
+
+
   <!-- ボールモデルの追加 -->
   <param name="ball_description" command="$(find xacro)/xacro $(find kataude_description)/urdf/ball.urdf"/>
   <node name="spawn_ball" pkg="gazebo_ros" type="spawn_model" args="-param ball_description -urdf -model ball -x 1.0 -y 1.0 -z 1.0"/>
@@ -21,6 +27,6 @@
     <arg name="debug" value="false"/>
   </include>
 
-  <include file="$(find kataude_description)/launch/controller.launch" >
+  <include file="$(find kataude_description)/launch/double_arm_controller.launch" >
   </include>
 </launch>
