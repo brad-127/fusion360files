@@ -5,8 +5,9 @@
   <param name="robot_description" command="$(find xacro)/xacro $(find souwan_description)/urdf/souwan.xacro"/>
   <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model souwan"/>
   
-  
-  
+  <!-- <param name="robot_description_cylinder" command="$(find xacro)/xacro $(find souwan_description)/urdf/cylinder.xacro"/>
+  <node name="spawn_urdf_cyliner" pkg="gazebo_ros" type="spawn_model" args="-param robot_description_cylinder -urdf -model cylinder -x 5.0"/> -->
+
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>

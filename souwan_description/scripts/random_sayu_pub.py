@@ -28,41 +28,41 @@ def publish_positions():
     while not rospy.is_shutdown():
         # メッセージの作成
         position1 = Float64()
-        position1.data = random.uniform(-math.pi/2, math.pi/2)  # -πからπの範囲でランダムな値
+        position1.data = random.choice([0, math.pi/6, math.pi*2/6, math.pi*3/6])
 
         position2 = Float64()
-        position2.data = random.uniform(-math.pi/2, math.pi/2)  # -πからπの範囲でランダムな値
+        position2.data = random.choice([0, math.pi/6, math.pi*2/6, math.pi*3/6])
 
         position3 = Float64()
-        position3.data = random.uniform(-math.pi/2, math.pi/2)  # -πからπの範囲でランダムな値
+        position3.data = random.choice([-math.pi*2/6, -math.pi/6, 0, math.pi/6, math.pi*2/6, math.pi*3/6])
 
         position4 = Float64()
-        position4.data = random.uniform(-math.pi/2, math.pi/2)  # -πからπの範囲でランダムな値
+        position4.data = random.choice([0, math.pi/2, math.pi*2/2, math.pi*3/2, math.pi*4/2])
 
         position5 = Float64()
-        position5.data = random.uniform(-math.pi/2, math.pi/2)  # -πからπの範囲でランダムな値
+        position5.data = random.choice([-math.pi/2, 0, math.pi/2])
 
         position6 = Float64()
-        position6.data = random.uniform(-math.pi/2, math.pi/2)  # -πからπの範囲でランダムな値
-        
+        position6.data = random.choice([-math.pi/2, 0, math.pi/2])
+
         position7 = Float64()
-        position7.data = random.uniform(-math.pi/2, math.pi/2)  # -πからπの範囲でランダムな値
-        
+        position7.data = random.choice([0, math.pi/6, math.pi*2/6, math.pi*3/6])
+
         position8 = Float64()
-        position8.data = random.uniform(-math.pi/2, math.pi/2)  # -πからπの範囲でランダムな値
-        
+        position8.data = random.choice([0, math.pi/6, math.pi*2/6, math.pi*3/6])
+
         position9 = Float64()
-        position9.data = random.uniform(-math.pi/2, math.pi/2)  # -πからπの範囲でランダムな値
-        
+        position9.data = random.choice([-math.pi*2/6, -math.pi/6, 0, math.pi/6, math.pi*2/6, math.pi*3/6])
+
         position10 = Float64()
-        position10.data = random.uniform(-math.pi/2, math.pi/2)  # -πからπの範囲でランダムな値
-        
+        position10.data = random.choice([0, math.pi/2, math.pi*2/2, math.pi*3/2, math.pi*4/2])
+
         position11 = Float64()
-        position11.data = random.uniform(-math.pi/2, math.pi/2)  # -πからπの範囲でランダムな値
-        
+        position11.data = random.choice([-math.pi/2, 0, math.pi/2])
+
         position12 = Float64()
-        position12.data = random.uniform(-math.pi/2, math.pi/2)  # -πからπの範囲でランダムな値
-        
+        position12.data = random.choice([-math.pi/2, 0, math.pi/2])
+
         print(f"Publishing positions... Position1: {position1.data} radians")
 
         # メッセージのパブリッシュ

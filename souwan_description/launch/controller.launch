@@ -4,8 +4,9 @@
 <node name="controller_spawner" 
     pkg="controller_manager" 
     type="spawner" respawn="false" 
-    output="screen" ns="souwan" 
-    args="ShoulderJoint2_position_controller xm540_2_position_controller xm540_3_position_controller ElbowJoint_position_controller xm540_1_position_controller Endeffector2_position_controller Endeffector1_position_controller ShoulderJoint2R_position_controller ElbowJointR_position_controller xm540_1R_position_controller xm540_2R_position_controller xm540_3R_position_controller Endeffetor1R_position_controller Endeffecter2R_position_controller ShoulderJointR_position_controller ShoulderJoint_position_controller joint_state_controller "/>
+    output="screen" ns="souwan_controller" 
+    args="ShoulderJoint2_position_controller xm540_2_position_controller xm540_3_position_controller ElbowJoint_position_controller xm540_1_position_controller EndEffector2_position_controller EndEffector1_position_controller ShoulderJoint2R_position_controller ElbowJointR_position_controller xm540_1R_position_controller xm540_2R_position_controller xm540_3R_position_controller EndEffector1R_position_controller EndEffector2R_position_controller ShoulderJointR_position_controller ShoulderJoint_position_controller joint_state_controller "/>
+    <!-- args="ShoulderJoint2_position_controller xm540_2_position_controller xm540_3_position_controller ShoulderJoint1_position_controller ElbowJoint_position_controller xm540_1_position_controller EndEffecter1_position_controller EndEffecter2_position_controller joint_state_controller "/> -->
 
 <!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
   <remap from="/joint_states" to="/souwan/joint_states"/> 

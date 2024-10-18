@@ -40,6 +40,29 @@
   </sensor>
 </gazebo>
 
+<gazebo reference="cylinder_link">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+  <sensor type="contact" name="contact_sensor_cylinder_link">
+    <always_on>true</always_on>
+    <update_rate>50.0</update_rate>
+    <contact>
+      <collision>cylinder_link_collision</collision>
+    </contact>
+    <plugin name="gazebo_ros_bumper" filename="libgazebo_ros_bumper.so">
+      <ros>
+        <namespace>/souwan_controller</namespace>
+        <remapping>bumber_states:=/contact_sensor_upperarm_state</remapping>
+      </ros>
+      <frameName>cylinder_link</frameName>
+    </plugin>
+  </sensor>
+  <material>Gazebo/Orange</material>
+</gazebo>
+
+
 <gazebo reference="Shoulder_Servo_1">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
@@ -59,6 +82,7 @@
       <frameName>Shoulder_Servo_1</frameName>
     </plugin>
   </sensor>
+  <!-- <material>Gazebo/Orange</material> -->
 </gazebo>
 
 <gazebo reference="UpperArm_1">
@@ -227,6 +251,7 @@
       <frameName>tactile1_1</frameName>
     </plugin>
   </sensor>
+  <material>Gazebo/Orange</material>
 </gazebo>
 
 <gazebo reference="tactile2_1">
@@ -248,6 +273,7 @@
       <frameName>tactile2_1</frameName>
     </plugin>
   </sensor>
+  <material>Gazebo/Orange</material>
 </gazebo>
 
 <gazebo reference="tactile3_1">
@@ -269,6 +295,7 @@
       <frameName>tactile3_1</frameName>
     </plugin>
   </sensor>
+  <material>Gazebo/Orange</material>
 </gazebo>
 
 <gazebo reference="tactile4_1">
@@ -290,6 +317,7 @@
       <frameName>tactile4_1</frameName>
     </plugin>
   </sensor>
+  <material>Gazebo/Orange</material>
 </gazebo>
 
 <gazebo reference="Shoulder_ServoR_1">
@@ -479,6 +507,7 @@
       <frameName>tactile1R_1</frameName>
     </plugin>
   </sensor>
+  <material>Gazebo/Orange</material>
 </gazebo>
 
 <gazebo reference="tactile2R_1">
@@ -500,6 +529,7 @@
       <frameName>tactile2R_1</frameName>
     </plugin>
   </sensor>
+  <material>Gazebo/Orange</material>
 </gazebo>
 
 <gazebo reference="tactile3R_1">
@@ -521,6 +551,7 @@
       <frameName>tactile3R_1</frameName>
     </plugin>
   </sensor>
+  <material>Gazebo/Orange</material>
 </gazebo>
 
 <gazebo reference="tactile4R_1">
@@ -542,6 +573,7 @@
       <frameName>tactile4R_1</frameName>
     </plugin>
   </sensor>
+  <material>Gazebo/Orange</material>
 </gazebo>
 
 </robot>

@@ -27,6 +27,37 @@
   </collision>
 </link>
 
+<!-- 円柱リンク -->
+<link name="cylinder_link">
+  <inertial>
+    <origin xyz="0 0 1.5" rpy="0 0 0"/>
+    <mass value="1.0"/>
+    <inertia ixx="0.1" iyy="0.1" izz="0.2" ixy="0" ixz="0" iyz="0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 1.0" rpy="0 0 0"/>
+    <geometry>
+      <cylinder radius="0.2" length="2.0"/>
+    </geometry>
+    <material>
+      <color rgba="0.8 0.2 0.2 1.0"/>
+    </material>
+  </visual>
+  <collision>
+    <origin xyz="0 0 1.0" rpy="0 0 0"/>
+    <geometry>
+      <cylinder radius="0.2" length="2.0"/>
+    </geometry>
+  </collision>
+</link>
+
+<!-- base_link に固定された円柱ジョイント -->
+<joint name="cylinder_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="cylinder_link"/>
+  <origin xyz="0 0 1.0" rpy="0 0 0"/>
+</joint>
+
 <link name="UpperArm_1">
   <inertial>
     <origin xyz="-2.3852068189833542e-05 -0.06873170258006335 -0.3984139354134444" rpy="0 0 0"/>
@@ -588,7 +619,7 @@
   <axis xyz="-0.0 0.0 -1.0"/>
 </joint>
 
-<joint name="Endeffector2" type="revolute">
+<joint name="EndEffector2" type="revolute">
   <origin xyz="-0.016974 0.043809 -0.046242" rpy="0 0 0"/>
   <parent link="mikata_arm_1"/>
   <child link="gripper1_1"/>
@@ -596,18 +627,12 @@
   <limit upper="0.0" lower="-1.047198" effort="100" velocity="100"/>
 </joint>
 
-<joint name="Endeffector1" type="revolute">
+<joint name="EndEffector1" type="revolute">
   <origin xyz="-0.016974 0.011809 -0.046242" rpy="0 0 0"/>
   <parent link="mikata_arm_1"/>
   <child link="gripper2_1"/>
   <axis xyz="-1.0 -0.0 0.0"/>
   <limit upper="1.047198" lower="0.0" effort="100" velocity="100"/>
-</joint>
-
-<joint name="tactile2" type="fixed">
-  <origin xyz="-0.075048 -0.018708 -0.672937" rpy="0 0 0"/>
-  <parent link="UpperArm_1"/>
-  <child link="tactile2_1"/>
 </joint>
 
 <joint name="tactile1" type="fixed">
@@ -616,16 +641,22 @@
   <child link="tactile1_1"/>
 </joint>
 
-<joint name="tactile4" type="fixed">
-  <origin xyz="-0.075141 -0.068197 -0.371984" rpy="0 0 0"/>
-  <parent link="ForeArm_1"/>
-  <child link="tactile4_1"/>
+<joint name="tactile2" type="fixed">
+  <origin xyz="-0.075048 -0.018708 -0.672937" rpy="0 0 0"/>
+  <parent link="UpperArm_1"/>
+  <child link="tactile2_1"/>
 </joint>
 
 <joint name="tactile3" type="fixed">
   <origin xyz="-0.075141 -0.018197 -0.110984" rpy="0 0 0"/>
   <parent link="ForeArm_1"/>
   <child link="tactile3_1"/>
+</joint>
+
+<joint name="tactile4" type="fixed">
+  <origin xyz="-0.075141 -0.068197 -0.371984" rpy="0 0 0"/>
+  <parent link="ForeArm_1"/>
+  <child link="tactile4_1"/>
 </joint>
 
 <joint name="ShoulderJoint2R" type="revolute">
@@ -691,7 +722,7 @@
   <child link="tactile4R_1"/>
 </joint>
 
-<joint name="Endeffetor1R" type="revolute">
+<joint name="EndEffector1R" type="revolute">
   <origin xyz="-0.020926 -0.039191 -0.046242" rpy="0 0 0"/>
   <parent link="mikata_armR_1"/>
   <child link="gripper2R_1"/>
@@ -699,7 +730,7 @@
   <limit upper="1.047198" lower="0.0" effort="100" velocity="100"/>
 </joint>
 
-<joint name="Endeffecter2R" type="revolute">
+<joint name="EndEffector2R" type="revolute">
   <origin xyz="-0.017026 -0.007191 -0.046242" rpy="0 0 0"/>
   <parent link="mikata_armR_1"/>
   <child link="gripper1R_1"/>
